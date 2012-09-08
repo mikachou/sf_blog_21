@@ -1,17 +1,33 @@
 {
-    "hash": "894f7c9482612461e2f8fb2134b30bbb",
+    "hash": "f0d8540de9b85468b9c497f45a06426f",
     "packages": [
         {
             "package": "doctrine/common",
-            "version": "2.3.0-RC2"
+            "version": "2.3.x-dev",
+            "source-reference": "605b1b8b5a7bc8daf9111fb35483e5708e30de35",
+            "commit-date": "1346249247"
         },
         {
             "package": "doctrine/dbal",
-            "version": "2.3.0-RC3"
+            "version": "2.3.x-dev",
+            "source-reference": "239630b61f03f39d198441eced1bfffb7b0e61d1",
+            "commit-date": "1346866589"
         },
         {
             "package": "doctrine/doctrine-bundle",
-            "version": "v1.0.0-RC1"
+            "version": "v1.0.0"
+        },
+        {
+            "package": "doctrine/mongodb",
+            "version": "1.0.0-BETA1"
+        },
+        {
+            "package": "doctrine/mongodb-odm",
+            "version": "1.0.0-BETA5"
+        },
+        {
+            "package": "doctrine/mongodb-odm-bundle",
+            "version": "v3.0.0-BETA1"
         },
         {
             "package": "doctrine/orm",
@@ -27,7 +43,7 @@
         },
         {
             "package": "jms/di-extra-bundle",
-            "version": "1.1.0-RC"
+            "version": "1.1.0"
         },
         {
             "package": "jms/metadata",
@@ -35,7 +51,7 @@
         },
         {
             "package": "jms/security-extra-bundle",
-            "version": "1.2.0-RC"
+            "version": "1.2.0"
         },
         {
             "package": "kriswallsmith/assetic",
@@ -55,7 +71,7 @@
         },
         {
             "package": "sensio/generator-bundle",
-            "version": "v2.1.0-RC2"
+            "version": "v2.1.0"
         },
         {
             "package": "swiftmailer/swiftmailer",
@@ -67,7 +83,7 @@
         },
         {
             "package": "symfony/monolog-bundle",
-            "version": "v2.1.0-RC2"
+            "version": "v2.1.0"
         },
         {
             "package": "symfony/swiftmailer-bundle",
@@ -75,7 +91,9 @@
         },
         {
             "package": "symfony/symfony",
-            "version": "v2.1.0"
+            "version": "2.1.x-dev",
+            "source-reference": "e7059b44c78ca8e1e892adb4d93b5a482f4eb9b3",
+            "commit-date": "1346926323"
         },
         {
             "package": "twig/extensions",
@@ -83,15 +101,23 @@
         },
         {
             "package": "twig/twig",
-            "version": "v1.9.2"
+            "version": "dev-master",
+            "alias-pretty-version": "1.9.x-dev",
+            "alias-version": "1.9.9999999.9999999-dev"
+        },
+        {
+            "package": "twig/twig",
+            "version": "dev-master",
+            "source-reference": "68b8c4619c5bbe82bd345fe56070dec8c356610a",
+            "commit-date": "1347025342"
         }
     ],
     "packages-dev": null,
     "aliases": [
 
     ],
-    "minimum-stability": "alpha",
-    "stability-flags": [
-
-    ]
+    "minimum-stability": "beta",
+    "stability-flags": {
+        "doctrine/mongodb-odm-bundle": 10
+    }
 }
