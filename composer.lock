@@ -1,5 +1,5 @@
 {
-    "hash": "9113f207951a482ebcd489dafd13afd5",
+    "hash": "f6e63f35719d8b1ea94a6142eaa08de9",
     "packages": [
         {
             "package": "doctrine/common",
@@ -27,17 +27,11 @@
         },
         {
             "package": "doctrine/mongodb-odm-bundle",
-            "version": "v3.0.0-BETA1"
+            "version": "v3.0.0-BETA3"
         },
         {
             "package": "doctrine/orm",
             "version": "2.3.0-RC3"
-        },
-        {
-            "package": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
-            "alias-pretty-version": "2.0.x-dev",
-            "alias-version": "2.0.9999999.9999999-dev"
         },
         {
             "package": "friendsofsymfony/user-bundle",
