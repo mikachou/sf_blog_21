@@ -19,7 +19,8 @@
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
         "doctrine/mongodb-odm-bundle": "v3.0.0-BETA3",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "cedriclombardot/admingenerator-generator-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
@@ -38,7 +39,7 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web"

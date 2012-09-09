@@ -73,3 +73,9 @@ fos_user:
     db_driver: mongodb
     firewall_name: main
     user_class: Schuh\BlogBundle\Document\User
+    
+admingenerator_generator:
+    templates_dirs: [ %kernel.root_dir%/../vendor/cedriclombardot/admingenerator-oldtheme-bundle/Admingenerator/OldThemeBundle/Resources/templates ]
+
+knp_menu:
+    twig: true

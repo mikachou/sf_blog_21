@@ -17,4 +17,13 @@ AnnotationRegistry::registerFile(
     __DIR__.'/../vendor/doctrine/mongodb-odm/lib/Doctrine/ODM/MongoDB/Mapping/Annotations/DoctrineAnnotations.php'
 );
 
+$loader->register(array(
+    'Admingenerator'    => array(__DIR__.'/../src', __DIR__.'/../vendor/bundles'),
+));
+
+$loader->register(array(
+    'Knp'       => __DIR__.'/../vendor/bundles',
+    'Knp\\Menu'  => __DIR__.'/../vendor/KnpMenu/src',
+));
+
 return $loader;
