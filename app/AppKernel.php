@@ -25,7 +25,8 @@ class AppKernel extends Kernel
             // Admin Generator
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
             new Admingenerator\OldThemeBundle\AdmingeneratorOldThemeBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle()
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
