@@ -1,7 +1,7 @@
 SchuhBlogAdminBundle_admin_schuh_blog_admin_bundle_article:
     resource: "@SchuhBlogAdminBundle/Controller/Article/"
     type:     admingenerator
-    prefix:   /admin/schuh_blog_admin_bundle/article
+    prefix:   /admin
 
 schuh_blog:
     resource: "@SchuhBlogBundle/Controller/DefaultController.php"
