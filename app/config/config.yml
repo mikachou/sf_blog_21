@@ -26,7 +26,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ AdmingeneratorOldThemeBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -78,7 +78,7 @@ fos_user:
     
 admingenerator_generator:
     templates_dirs: [ %kernel.root_dir%/../vendor/cedriclombardot/admingenerator-oldtheme-bundle/Admingenerator/OldThemeBundle/Resources/templates ]
-    base_admin_template: AdmingeneratorGeneratorBundle::base_admin.html.twig
+    base_admin_template: AdmingeneratorOldThemeBundle::base_admin.html.twig
     use_propel: false
     use_doctrine_orm: false
     use_doctrine_odm: true
