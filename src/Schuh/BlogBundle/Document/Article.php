@@ -3,6 +3,7 @@
 namespace Schuh\BlogBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @MongoDB\Document
@@ -13,27 +14,51 @@ class Article
      * @MongoDB\Id
      */
     protected $id;
-    
+
     /**
      * @MongoDB\ReferenceOne(targetDocument="User", mappedBy="id")
      */
     protected $author;
-    
+
     /**
      * @MongoDB\String 
      */
     protected $title;
-    
+
+    /**
+     * @MongoDB\String 
+     * @Gedmo\Slug(fields={"title"}, updatable=false, separator="-")
+     */
+    protected $slug;
+
     /**
      * @MongoDB\String
      */
     protected $text;
-    
+
     /**
      * @MongoDB\EmbedMany(targetDocument="Comment")
      */
     protected $comments;
-    
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @MongoDB\Date
+     */
+    protected $created;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @MongoDB\Date
+     */
+    protected $updated;
+
+    /**
+     * @MongoDB\Date
+     */
+    protected $published;
+
+
     public function __construct()
     {
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();

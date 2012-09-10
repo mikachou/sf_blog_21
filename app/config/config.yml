@@ -70,7 +70,7 @@ doctrine_mongodb:
     document_managers:
         default:
             auto_mapping: true
-            
+         
 fos_user:
     db_driver: mongodb
     firewall_name: main
@@ -88,3 +88,10 @@ knp_menu:
 
 jms_security_extra:
     expressions: true
+
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default: ~
+    mongodb:
+        default: ~

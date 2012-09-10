@@ -24,6 +24,12 @@ class Comment
      */
     protected $author;
     
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @MongoDB\Date
+     */
+    protected $created;
+    
 
     /**
      * Get id

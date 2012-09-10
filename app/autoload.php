@@ -26,4 +26,9 @@ $loader->register(array(
     'Knp\\Menu'  => __DIR__.'/../vendor/KnpMenu/src',
 ));
 
+$loader->register(array(
+    'Stof'  => __DIR__.'/../vendor/bundles',
+    'Gedmo' => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
+));
+
 return $loader;
