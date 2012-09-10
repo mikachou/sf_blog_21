@@ -85,4 +85,26 @@ class Comment
     {
         return $this->author;
     }
+
+    /**
+     * Set created
+     *
+     * @param date $created
+     * @return Comment
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return date $created
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
 }
