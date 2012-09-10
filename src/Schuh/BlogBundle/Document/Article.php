@@ -27,7 +27,7 @@ class Article
 
     /**
      * @MongoDB\String 
-     * @Gedmo\Slug(fields={"title"}, updatable=false, separator="-")
+     * @Gedmo\Slug(fields={"title"}, updatable=false)
      */
     protected $slug;
 
