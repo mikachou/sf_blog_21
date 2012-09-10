@@ -27,7 +27,9 @@ builders:
   new:
     params:
       title: Nouvel article
-      display: ~
+      display: [ title, text ]
+      fields:
+        title: { label: Titre de l'article }
       actions:
         list: ~
   edit:
