@@ -31,4 +31,8 @@ $loader->register(array(
     'Gedmo' => __DIR__.'/../vendor/gedmo-doctrine-extensions/lib',
 ));
 
+$loader->register(array(
+    'Stfalcon' => __DIR__.'/../vendor/bundles',
+));
+
 return $loader;

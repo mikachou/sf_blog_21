@@ -1,1 +1,5 @@
 {% extends_admingenerated "SchuhBlogAdminBundle:ArticleNew:index.html.twig" %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ tinymce_init() }}
+{% endblock %}

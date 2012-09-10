@@ -34,8 +34,10 @@ builders:
         list: ~
   edit:
     params:
-      title: Edition de "{{ YourModel.title }}"
+      title: Edition de "{{ Article.title }}"
       display: [ title, text ]
+      fields:
+        title: { label: Titre de l'article }
       actions:
         list: ~
   delete: ~
