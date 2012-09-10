@@ -8,8 +8,14 @@ params:
 builders:
   list:
     params:
-      title: List for BlogAdminBundle
-      display: ~
+      title: Liste des articles
+      display: [ title, author, created, updated, published ]
+      fields:
+        title: { label: Titre }
+        author: { label: Auteur }
+        created: { label: Création }
+        updated: { label: Mise-à-jour }
+        published: { label: Publication }
       actions:
         new: ~
       object_actions:
@@ -20,14 +26,14 @@ builders:
       display: ~
   new:
     params:
-      title: New object for BlogAdminBundle
+      title: Nouvel article
       display: ~
       actions:
         list: ~
   edit:
     params:
-      title: You're editing the object "{{ YourModel.title }}"
-      display: ~
+      title: Edition de "{{ YourModel.title }}"
+      display: [ title, text ]
       actions:
         list: ~
   delete: ~

@@ -1,10 +1,13 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    
+parameters:
+    locale: fr
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
