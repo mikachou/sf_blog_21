@@ -97,7 +97,9 @@ stof_doctrine_extensions:
     orm:
         default: ~
     mongodb:
-        default: ~
+        default:
+            timestampable: true
+            sluggable: true
         
 stfalcon_tinymce:
     include_jquery: true
