@@ -6,6 +6,7 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Schuh\BlogBundle\Document\Article;
+use Schuh\BlogBundle\Document\Comment;
 
 class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -14,6 +15,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
+        srand(microtime() * 1000000);
         $j = 0;
         for ($i = 0; $i <= 3; $i++) {
             foreach ($this->getData() as $data) {
@@ -21,6 +23,15 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
                 $article[$j]->setTitle($data['title']);
                 $article[$j]->setText($data['text']);
                 $article[$j]->setAuthor($this->getReference('admin-user'));
+                
+                for ($k = 0; $k < rand(0, 50); $k++)
+                {
+                    $comment = new Comment();
+                    $comment->setAuthor($this->getCommentAuthor());
+                    $comment->setText($this->getCommentText());
+                    $article[$j]->addComments($comment);
+                }
+                
                 $manager->persist($article[$j]);
                 $j++;
             }
@@ -214,5 +225,28 @@ EOF
         );
         
         return $data;
+    }
+    
+    protected function getCommentAuthor()
+    {
+        $names = array('Alice', 'Bob', 'Carol', 'Ted');
+        
+        srand(microtime() * 1000000);
+        return $names[rand(0, count($names) - 1)];
+    }
+    
+    protected function getCommentText()
+    {
+        $comments = array(
+            'Je ne suis pas d\'accord',
+            'Vous avez tout à fait raison',
+            'C\'est bien la première fois que je peux lire ça',
+            'Mais où allez-vous donc chercher tout ça ??????',
+            'C\'est tout à fait vrai, je l\'ai moi-même remarqué',
+            'Votre blog est très beau !'
+        );
+        
+        srand(microtime() * 1000000);
+        return $comments[rand(0, count($comments) - 1)];
     }
 }
