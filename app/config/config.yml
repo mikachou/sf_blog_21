@@ -156,3 +156,11 @@ stfalcon_tinymce:
             remove_linebreaks: false
             inline_styles: false
             convert_fonts_to_spans: false
+            
+schuh_blog:
+    blog:
+        main_title: Mon blog
+        second_title: Un blog de démonstration
+    home:
+        articles_by_page: 10
+        characters_displayed: 255

@@ -23,6 +23,21 @@ class Configuration implements ConfigurationInterface
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('blog')
+                    ->children()
+                        ->scalarNode('main_title')->defaultValue('My blog')->cannotBeEmpty()->end()
+                        ->scalarNode('second_title')->defaultValue('A demo blog')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
+                ->arrayNode('home')
+                    ->children()
+                        ->scalarNode('articles_by_page')->defaultValue(10)->cannotBeEmpty()->end()
+                        ->scalarNode('characters_displayed')->defaultValue(255)->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }
