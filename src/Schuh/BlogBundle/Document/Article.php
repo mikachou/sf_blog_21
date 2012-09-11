@@ -26,8 +26,8 @@ class Article
     protected $title;
 
     /**
-     * @MongoDB\String 
      * @Gedmo\Slug(fields={"title"})
+     * @MongoDB\String 
      */
     protected $slug;
 
