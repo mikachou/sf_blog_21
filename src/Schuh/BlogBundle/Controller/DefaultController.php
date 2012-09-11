@@ -25,7 +25,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/{slug}")
+     * @Route("/article/{slug}")
      * @Template()
      */
     public function showAction($slug)
