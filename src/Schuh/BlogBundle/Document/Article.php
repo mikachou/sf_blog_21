@@ -21,13 +21,13 @@ class Article
     protected $author;
 
     /**
-     * @MongoDB\String 
+     * @MongoDB\String
      */
     protected $title;
 
     /**
      * @MongoDB\String 
-     * @Gedmo\Slug(fields={"title"}, updatable=false)
+     * @Gedmo\Slug(fields={"title"})
      */
     protected $slug;
 
