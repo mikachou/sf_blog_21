@@ -39,7 +39,7 @@ class Article
     /**
      * @MongoDB\EmbedMany(targetDocument="Comment")
      */
-    protected $comments;
+    protected $comments = array();
 
     /**
      * @Gedmo\Timestampable(on="create")
