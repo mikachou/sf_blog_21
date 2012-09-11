@@ -6,7 +6,7 @@
 {{ article.text|slice(0, chars)|raw }}<a href="{{ article.slug }}">[...]</a>
 <br>
 <br>
-<a href="{{ article.slug }}">Lire la suite...</a>
+<a href="{{ article.slug }}">Lire la suite...</a><a style="margin-left: 50px;" href="{{ article.slug }}">{{ article.comments|length }} commentaires...</a>
 <hr>
 {% endfor %}
 {% endblock %}
