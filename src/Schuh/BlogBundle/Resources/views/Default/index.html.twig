@@ -2,11 +2,11 @@
 
 {% block content %}
 {% for article in articles %}
-<h1>{{ article.title }}</h1>
-{{ article.text|slice(0, 500)|raw }}[...]
+<a href="{{ article.slug }}"><h1>{{ article.title }}</h1></a>
+{{ article.text|slice(0, chars)|raw }}<a href="{{ article.slug }}">[...]</a>
 <br>
 <br>
-Lire la suite...
+<a href="{{ article.slug }}">Lire la suite...</a>
 <hr>
 {% endfor %}
 {% endblock %}

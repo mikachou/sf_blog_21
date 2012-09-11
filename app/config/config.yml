@@ -163,4 +163,4 @@ schuh_blog:
         second_title: Un blog de démonstration
     home:
         articles_by_page: 10
-        characters_displayed: 255
+        characters_displayed: 500

@@ -34,7 +34,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('home')
                     ->children()
                         ->scalarNode('articles_by_page')->defaultValue(10)->cannotBeEmpty()->end()
-                        ->scalarNode('characters_displayed')->defaultValue(255)->cannotBeEmpty()->end()
+                        ->scalarNode('characters_displayed')->defaultValue(500)->cannotBeEmpty()->end()
                     ->end()
                 ->end()
             ->end();
