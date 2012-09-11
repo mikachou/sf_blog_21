@@ -1,0 +1,12 @@
+div.comment {
+    border-bottom: 2px dotted #222;
+    padding: 10px 25px 10px 25px;
+}
+
+div.comment.even {
+    background-color: #FFF;
+}
+
+div.comment.odd {
+    background-color: #DDD;
+}

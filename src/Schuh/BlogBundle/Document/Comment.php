@@ -107,4 +107,9 @@ class Comment
     {
         return $this->created;
     }
+    
+    public function __toString()
+    {
+        return $this->getText();
+    }
 }

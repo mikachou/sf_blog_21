@@ -3,4 +3,12 @@
 {% block content %}
 <h1>{{ article.title }}</h1>
 {{ article.text|raw }}
+<hr>
+<h1>{{ article.comments|length }} commentaires</h1>
+{% for i in 0..article.comments|length - 1 %}
+    <div class="comment {{ cycle(['odd', 'even'], i) }}">
+        <b><i>{{ article.comments[i].author }} a écrit :</i></b><br/>
+        {{ article.comments[i] }}
+    </div>
+{% endfor %}
 {% endblock %}
