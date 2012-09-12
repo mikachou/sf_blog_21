@@ -33,6 +33,8 @@ class DefaultController extends Controller
         $max_page = ceil($n_articles / $articles_by_page);
         $page = $page > $max_page ? $maxpage : $page;
         
+        $this->get('session')->set('selected_menu', 1);
+        
         return array(
             'articles' => $articles, 
             'chars' => $config['home']['characters_displayed'],
@@ -143,7 +145,23 @@ class DefaultController extends Controller
         if (0 === count($articles)) {
             throw $this->createNotFoundException('La page que vous demandez n\'existe pas');
         }
+        
+        $this->get('session')->set('selected_menu', 2);
 
         return array('articles' => $articles, 'chars' => $config['home']['characters_displayed']);
+    }
+    
+    /**
+     * @Template
+     */
+    public function topMenuAction()
+    {
+        $categories = $this->get('doctrine_mongo_db')
+                ->getRepository('Schuh\BlogBundle\Document\Category')
+                ->findAll();
+        
+        $selectedMenu = $this->get('session')->get('selected_menu', 1);
+        
+        return array('categories' => $categories, 'selectedMenu' => $selectedMenu);
     }
 }

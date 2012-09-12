@@ -1,0 +1,11 @@
+<ul class="sf-menu" id="nav">
+<li{% if selectedMenu == 1 %} class="selected"{% endif %}><a href="{{ path('homepage') }}">Accueil</a></li>
+<li{% if selectedMenu == 2 %} class="selected"{% endif %}><a href="#">Catégories</a>
+  <ul>
+    {% for category in categories %}
+    <li><a href="{{ path('category', { 'slug': category.slug }) }}">{{ category.name }}</a></li>
+    {% endfor %}
+  </ul>
+</li>
+<li{% if selectedMenu == 3 %} class="selected"{% endif %}><a href="#">Contact</a></li>
+</ul>
