@@ -6,3 +6,5 @@
 /app/config/parameters.ini
 composer.phar
 composer.lock
+app/config/parameters.yml
+app/config/config_dev.yml
