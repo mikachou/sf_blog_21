@@ -76,4 +76,17 @@ class DefaultController extends Controller
 
         return array('article' => $article, 'form' => $form->createView());
     }
+    
+    /**
+     * @Template()
+     */
+    public function logoTextAction()
+    {
+        $config = $this->container->getParameter('schuh_blog');
+        
+        return array(
+            'main_title' => $config['blog']['main_title'],
+            'second_title' => $config['blog']['second_title']
+        );
+    }
 }
