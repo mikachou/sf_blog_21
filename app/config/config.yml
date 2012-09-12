@@ -81,7 +81,7 @@ fos_user:
     
 admingenerator_generator:
     templates_dirs: [ %kernel.root_dir%/../vendor/cedriclombardot/admingenerator-oldtheme-bundle/Admingenerator/OldThemeBundle/Resources/templates ]
-    base_admin_template: AdmingeneratorOldThemeBundle::base_admin_assetic_less.html.twig
+    base_admin_template: SchuhBlogAdminBundle::base_admin_assetic_less.html.twig
     use_propel: false
     use_doctrine_orm: false
     use_doctrine_odm: true
