@@ -3,13 +3,13 @@
 {% block content %}
 {% for article in articles %}
 {# TODO: create a Twig function that does 'path('article', {'slug': article.slug}' #}
-<a href="{{ path('article', {'slug': article.slug}) }}"><h1>{{ article.title }}</h1></a>
+<a href="{{ path('article', { 'slug': article.slug }) }}"><h1>{{ article.title }}</h1></a>
 <b>{{ article|publication }}</b>
 <br><br>
-{{ article.text|slice(0, chars)|raw }}<a href="{{ path('article', {'slug': article.slug}) }}">[...]</a>
+{{ article.text|slice(0, chars)|raw }}<a href="{{ path('article', { 'slug': article.slug }) }}">[...]</a>
 <br>
 <br>
-<a href="{{ path('article', {'slug': article.slug}) }}">Lire la suite...</a><a style="margin-left: 50px;" href="article/{{ article.slug }}">{{ article.comments|length }} commentaires...</a>
+<a href="{{ path('article', { 'slug': article.slug }) }}">Lire la suite...</a><a style="margin-left: 50px;" href="article/{{ article.slug }}">{{ article.comments|length }} commentaires...</a>
 <hr>
 {% endfor %}
 {% endblock %}
