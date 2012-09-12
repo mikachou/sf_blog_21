@@ -2,13 +2,27 @@
 
 {% block content %}
 <h1>{{ article.title }}</h1>
+<b>{{ article|publication }}</b>
+<br><br>
 {{ article.text|raw }}
 <hr>
 <h1>{{ article.comments|length }} commentaires</h1>
 {% for i in 0..article.comments|length - 1 %}
     <div class="comment {{ cycle(['odd', 'even'], i) }}">
-        <b><i>{{ article.comments[i].author }} a écrit :</i></b><br/>
+        <b><i>{{ article.comments[i].author }} a écrit le {{ article.comments[i].created|date('d/m/Y') }} à {{ article.comments[i].created|date('H:i') }}</i></b><br/>
         {{ article.comments[i] }}
     </div>
 {% endfor %}
+<div class="leave_comment">
+<h1>Laissez un commentaire</h1>
+<form method="post" {{ form_enctype(form) }}>
+    <h2>{{ form_label(form.author) }}</h2>
+    {{ form_errors(form.author) }}
+    {{ form_widget(form.author) }}
+    <h2>{{ form_label(form.text) }}</h2>
+    {{ form_errors(form.text) }}
+    {{ form_widget(form.text) }}<br>
+    <input style="margin-top: 15px" type="submit" />
+</form>
+</div>
 {% endblock %}

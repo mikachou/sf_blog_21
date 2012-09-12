@@ -17,4 +17,9 @@
         </service>
     </services>
     -->
+    <services>
+        <service id="schuh.twig.blog_extension" class="Schuh\BlogBundle\Twig\BlogExtension">
+            <tag name="twig.extension" />
+        </service>
+    </services>
 </container>
