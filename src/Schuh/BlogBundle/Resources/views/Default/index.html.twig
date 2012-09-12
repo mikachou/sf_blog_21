@@ -1,21 +1,23 @@
 {% extends "SchuhBlogBundle::layout.html.twig" %}
 
 {% block content %}
-{% for article in articles %}
-{# TODO: create a Twig function that does 'path('article', {'slug': article.slug}' #}
-<a href="{{ path('article', { 'slug': article.slug }) }}"><h1>{{ article.title }}</h1></a>
-<h5>{{ article|publication }}</h5>
-{{ article.text|slice(0, chars)|raw }}<a href="{{ path('article', { 'slug': article.slug }) }}">[...]</a>
-<br>
-<br>
-<a href="{{ path('article', { 'slug': article.slug }) }}">Lire la suite...</a><a style="margin-left: 50px;" href="article/{{ article.slug }}">{{ article.comments|length }} commentaires...</a>
-<hr>
-{% endfor %}
-{# pager #}
-{% if (max_page == false) %}
-<a href="{{ path('homepage') }}?page={{ page + 1 }}">Page précédente</a>
-{% endif %}
-{% if (page != 1) %}
-<a href="{{ path('homepage') }}?page={{ page - 1 }}">Page suivante</a>
-{% endif %}
+    {% for article in articles %}
+    {# TODO: create a Twig function that does 'path('article', {'slug': article.slug}' #}
+    <a href="{{ path('article', { 'slug': article.slug }) }}"><h1>{{ article.title }}</h1></a>
+    <h5>{{ article|publication }}</h5>
+    {{ article.text|slice(0, chars)|raw }}<a href="{{ path('article', { 'slug': article.slug }) }}">[...]</a>
+    <br>
+    <br>
+    <a href="{{ path('article', { 'slug': article.slug }) }}">Lire la suite...</a><a style="margin-left: 50px;" href="article/{{ article.slug }}">{{ article.comments|length }} commentaires...</a>
+    <hr>
+    {% endfor %}
+    {# pager #}
+    {% block pager %}
+        {% if (max_page == false) %}
+        <a href="{{ path('homepage') }}?page={{ page + 1 }}">Page précédente</a>
+        {% endif %}
+        {% if (page != 1) %}
+        <a href="{{ path('homepage') }}?page={{ page - 1 }}">Page suivante</a>
+        {% endif %}
+    {% endblock %}
 {% endblock %}

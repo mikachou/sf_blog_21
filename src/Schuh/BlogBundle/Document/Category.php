@@ -3,6 +3,7 @@
 namespace Schuh\BlogBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @MongoDB\Document
@@ -18,6 +19,12 @@ class Category
      * @MongoDB\String 
      */
     protected $name;
+    
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @MongoDB\String 
+     */    
+    protected $slug;
 
     /**
      * Get id
@@ -54,5 +61,27 @@ class Category
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Category
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

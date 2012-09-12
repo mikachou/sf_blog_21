@@ -1,6 +1,6 @@
 <h3>Catégories</h3>
 <ul>
     {% for category in categories %}
-        <li>{{ category.name }}</li>
+        <li><a href="{{ path('category', { 'slug': category.slug }) }}">{{ category.name }}</a></li>
     {% endfor %}
 </ul>

@@ -132,18 +132,18 @@ class DefaultController extends Controller
      * @Route(name="category", pattern="/category/{slug}")
      * @Template()
      */
-    public function categoryAction()
-    {   
-        $request = $this->get('request');
+    public function categoryAction($slug)
+    {
+        $config = $this->container->getParameter('schuh_blog');
         
         $articles = $this->get('doctrine_mongo_db')
                 ->getRepository('Schuh\BlogBundle\Document\Article')
-                ->findBy(array('is_published' => true, 'category' => $category));
- 
+                ->findByCategorySlug($slug, array('is_published' => true));
+
         if (0 === count($articles)) {
             throw $this->createNotFoundException('La page que vous demandez n\'existe pas');
         }
 
-        return array('article' => $article);
+        return array('articles' => $articles, 'chars' => $config['home']['characters_displayed']);
     }
 }

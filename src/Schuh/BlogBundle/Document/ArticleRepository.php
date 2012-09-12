@@ -12,6 +12,14 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class ArticleRepository extends DocumentRepository
 {
+    /**
+     * Retrieves Articles for a pager
+     * 
+     * @param type $params
+     * @param int $n number of Articles per page
+     * @param int $p number of the page
+     * @return array the Article objects
+     */
     public function findNArticlesByPage($params, $n, $p)
     {
         return $this->findBy($params, array('published', 'desc'), $n, $n * ($p - 1));
@@ -22,5 +30,29 @@ class ArticleRepository extends DocumentRepository
 //            ->sort('published', 'desc')
 //            ->getQuery()
 //            ->execute();
+    }
+ 
+    /**
+     * Retrieves Articles by slug
+     * 
+     * @param string $slug 
+     * @param type $params
+     * @param int $n number of Articles per page
+     * @param int $p number of the page
+     * @return array the Article objects
+     */
+    public function findByCategorySlug($slug, $params)
+    {
+        $result = array();
+        //$articles = $this->findNArticlesByPage($params, $n, $p);
+        $articles = $this->findBy($params);
+        
+        foreach ($articles as $article) {
+            if ($article->getCategory()->getSlug() === $slug) {
+                $result[] = $article;
+            }
+        }
+
+        return $result;
     }
 }
