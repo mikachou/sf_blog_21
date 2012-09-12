@@ -8,8 +8,8 @@
 <h1>{{ article.comments|length }} commentaires</h1>
 {% for i in 0..article.comments|length - 1 %}
     <div class="comment {{ cycle(['odd', 'even'], i) }}">
-        <b><i>{{ article.comments[i].author }} a écrit le {{ article.comments[i].created|date('d/m/Y') }} à {{ article.comments[i].created|date('H:i') }}</i></b><br/>
-        {{ article.comments[i] }}
+        <h5>{{ article.comments[i].author }} a écrit le {{ article.comments[i].created|date('d/m/Y') }} à {{ article.comments[i].created|date('H:i') }}</h5>
+        <p>{{ article.comments[i] }}</p>
     </div>
 {% endfor %}
 <div class="leave_comment">
