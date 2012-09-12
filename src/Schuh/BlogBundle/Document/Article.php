@@ -57,6 +57,11 @@ class Article
      * @MongoDB\Date
      */
     protected $published;
+    
+    /**
+     * @MongoDB\Boolean
+     */
+    protected $is_published;
 
 
     public function __construct()
@@ -246,5 +251,27 @@ class Article
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * Set is_published
+     *
+     * @param boolean $isPublished
+     * @return Article
+     */
+    public function setIsPublished($isPublished)
+    {
+        $this->is_published = $isPublished;
+        return $this;
+    }
+
+    /**
+     * Get is_published
+     *
+     * @return boolean $isPublished
+     */
+    public function getIsPublished()
+    {
+        return $this->is_published;
     }
 }

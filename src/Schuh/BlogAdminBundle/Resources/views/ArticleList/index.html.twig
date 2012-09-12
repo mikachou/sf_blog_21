@@ -2,3 +2,19 @@
 
 {% block filters %}
 {% endblock %}
+
+{% block list_td_column_published %}
+    {% if Article.published != null %}
+        {{ Article.published|date("d/m/Y") }}
+    {% else %}
+        Non publié
+    {% endif %}
+{% endblock %}
+        
+{% block list_td_column_created %}
+    {{ Article.created|date("d/m/Y") }}
+{% endblock %}
+        
+{% block list_td_column_updated %}
+    {{ Article.updated|date("d/m/Y") }}
+{% endblock %}

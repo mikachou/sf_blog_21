@@ -27,7 +27,7 @@ builders:
   new:
     params:
       title: Nouvel article
-      display: [ title, text ]
+      display: [ title, text, is_published ]
       fields:
         title: { label: Titre de l'article }
       actions:
@@ -35,7 +35,7 @@ builders:
   edit:
     params:
       title: Edition de "{{ Article.title }}"
-      display: [ title, text ]
+      display: [ title, text, is_published ]
       fields:
         title: { label: Titre de l'article }
       actions:
