@@ -1,6 +1,11 @@
 {% extends "SchuhBlogBundle::layout.html.twig" %}
 
 {% block content %}
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        <h1>{{ flashMessage }}</h1>
+    </div>
+{% endfor %}
 <div class="leave_comment">
 <h1>Laissez moi un message</h1>
 <form method="post" {{ form_enctype(form) }}>

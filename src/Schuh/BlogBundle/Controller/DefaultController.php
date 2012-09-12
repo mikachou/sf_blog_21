@@ -192,6 +192,8 @@ class DefaultController extends Controller
                     ->setBody($values['mail'] . ' a écrit ' . $values['message']);
                 
                 $this->get('mailer')->send($message);
+                
+                $this->get('session')->getFlashBag()->add('notice', 'Votre message a été envoyé');
             }
         }
         
