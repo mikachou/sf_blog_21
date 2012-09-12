@@ -23,11 +23,11 @@ class DefaultController extends Controller
         
         $articles = $this->get('doctrine_mongo_db')
                 ->getRepository('Schuh\BlogBundle\Document\Article')
-                ->findNArticlesByPage($articles_by_page, $page);
+                ->findNArticlesByPage(array('is_published' => true), $articles_by_page, $page);
         
         $n_articles = $this->get('doctrine_mongo_db')
                 ->getRepository('Schuh\BlogBundle\Document\Article')
-                ->findAll()
+                ->findBy(array('is_published' => true))
                 ->count();
         
         $max_page = ceil($n_articles / $articles_by_page);
@@ -100,7 +100,7 @@ class DefaultController extends Controller
         
         $articles = $this->get('doctrine_mongo_db')
                 ->getRepository('Schuh\BlogBundle\Document\Article')
-                ->findBy(array(), array('published', 'desc'), $recentArticles);
+                ->findBy(array('is_published' => true), array('published', 'desc'), $recentArticles);
         
         return array('articles' => $articles);
     }
@@ -126,5 +126,24 @@ class DefaultController extends Controller
         $contact = $config['widgets']['contact'];
         
         return array('contact' => $contact);
+    }
+    
+    /**
+     * @Route(name="category", pattern="/category/{slug}")
+     * @Template()
+     */
+    public function categoryAction()
+    {   
+        $request = $this->get('request');
+        
+        $articles = $this->get('doctrine_mongo_db')
+                ->getRepository('Schuh\BlogBundle\Document\Article')
+                ->findBy(array('is_published' => true, 'category' => $category));
+ 
+        if (0 === count($articles)) {
+            throw $this->createNotFoundException('La page que vous demandez n\'existe pas');
+        }
+
+        return array('article' => $article);
     }
 }

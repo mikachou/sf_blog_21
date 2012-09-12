@@ -12,9 +12,9 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
  */
 class ArticleRepository extends DocumentRepository
 {
-    public function findNArticlesByPage($n, $p)
+    public function findNArticlesByPage($params, $n, $p)
     {
-        return $this->findBy(array(), array('published', 'desc'), $n, $n * ($p - 1));
+        return $this->findBy($params, array('published', 'desc'), $n, $n * ($p - 1));
         
 //        return $this->createQueryBuilder()
 //            ->limit($n)
