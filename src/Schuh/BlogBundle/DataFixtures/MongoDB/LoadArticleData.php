@@ -17,7 +17,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
     {
         srand(microtime() * 1000000);
         $j = 0;
-        for ($i = 0; $i <= 3; $i++) {
+        for ($i = 0; $i <= 20; $i++) {
             foreach ($this->getData() as $data) {
                 $article[$j] = new Article();
                 $article[$j]->setTitle($data['title']);

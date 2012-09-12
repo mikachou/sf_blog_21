@@ -12,4 +12,11 @@
 <a href="{{ path('article', { 'slug': article.slug }) }}">Lire la suite...</a><a style="margin-left: 50px;" href="article/{{ article.slug }}">{{ article.comments|length }} commentaires...</a>
 <hr>
 {% endfor %}
+{# pager #}
+{% if (max_page == false) %}
+<a href="{{ path('homepage') }}?page={{ page + 1 }}">Page précédente</a>
+{% endif %}
+{% if (page != 1) %}
+<a href="{{ path('homepage') }}?page={{ page - 1 }}">Page suivante</a>
+{% endif %}
 {% endblock %}

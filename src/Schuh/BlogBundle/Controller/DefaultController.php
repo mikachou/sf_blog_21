@@ -18,12 +18,26 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $config = $this->container->getParameter('schuh_blog');
-
+        $articles_by_page = $config['home']['articles_by_page'];
+        $page = $this->getRequest()->get('page', 1);
+        
         $articles = $this->get('doctrine_mongo_db')
                 ->getRepository('Schuh\BlogBundle\Document\Article')
-                ->findNArticlesByPage($config['home']['articles_by_page'], 10);
+                ->findNArticlesByPage($articles_by_page, $page);
         
-        return array('articles' => $articles, 'chars' => $config['home']['characters_displayed']);
+        $n_articles = $this->get('doctrine_mongo_db')
+                ->getRepository('Schuh\BlogBundle\Document\Article')
+                ->findAll()
+                ->count();
+        
+        $max_page = ceil($n_articles / $articles_by_page);
+        $page = $page > $max_page ? $maxpage : $page;
+        
+        return array(
+            'articles' => $articles, 
+            'chars' => $config['home']['characters_displayed'],
+            'page' => $page,
+            'max_page' => $page >= $max_page);
     }
     
     /**
