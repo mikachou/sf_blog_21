@@ -16,7 +16,7 @@ class Article
     protected $id;
 
     /**
-     * @MongoDB\ReferenceOne(targetDocument="User", mappedBy="id")
+     * @MongoDB\ReferenceOne(targetDocument="User")
      */
     protected $author;
 
