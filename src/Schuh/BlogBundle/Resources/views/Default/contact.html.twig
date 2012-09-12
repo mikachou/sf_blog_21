@@ -1,0 +1,17 @@
+{% extends "SchuhBlogBundle::layout.html.twig" %}
+
+{% block content %}
+<div class="leave_comment">
+<h1>Laissez moi un message</h1>
+<form method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form._token) }}
+    <h2>{{ form_label(form.mail) }}</h2>
+    {{ form_errors(form.mail) }}
+    {{ form_widget(form.mail) }}
+    <h2>{{ form_label(form.message) }}</h2>
+    {{ form_errors(form.message) }}
+    {{ form_widget(form.message) }}<br>
+    <input style="margin-top: 15px" type="submit" />
+</form>
+</div>
+{% endblock %}

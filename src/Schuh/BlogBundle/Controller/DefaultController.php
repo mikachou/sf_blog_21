@@ -164,4 +164,37 @@ class DefaultController extends Controller
         
         return array('categories' => $categories, 'selectedMenu' => $selectedMenu);
     }
+    
+    /**
+     * @Route(name="contact", pattern="contact")
+     * @Template
+     */
+    public function contactAction()
+    {
+        $config = $this->container->getParameter('schuh_blog');
+        
+        $form = $this->createFormBuilder()
+                ->add('mail', 'text', array('label' => 'Votre adresse mail', 'attr' => array('size' => 50)))
+                ->add('message', 'textarea', array('label' => 'Tapez votre message', 'attr' => array('cols' => 50, 'rows' => 10)))
+                ->getForm();
+        
+        $request = $this->get('request');
+
+        if($request->isMethod('POST')) {
+            $form->bindRequest($request);
+
+            if($form->isValid()) {
+                $values = $request->get('form');
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Envoi depuis le blog')
+                    ->setFrom($values['mail'])
+                    ->setTo($config['widgets']['contact'])
+                    ->setBody($values['mail'] . ' a écrit ' . $values['message']);
+                
+                $this->get('mailer')->send($message);
+            }
+        }
+        
+        return array('form' => $form->createView());
+    }
 }
