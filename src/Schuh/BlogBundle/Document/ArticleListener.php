@@ -2,7 +2,6 @@
 
 namespace Schuh\BlogBundle\Document;
 
-use Doctrine\ODM\MongoDB\Events;
 use Doctrine\ODM\MongoDB\Event\LifecycleEventArgs;
 use Schuh\BlogBundle\Document\Article;
 
