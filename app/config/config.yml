@@ -164,3 +164,5 @@ schuh_blog:
     home:
         articles_by_page: 10
         characters_displayed: 500
+    widgets:
+        recent_articles: 3

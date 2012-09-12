@@ -4,8 +4,7 @@
 {% for article in articles %}
 {# TODO: create a Twig function that does 'path('article', {'slug': article.slug}' #}
 <a href="{{ path('article', { 'slug': article.slug }) }}"><h1>{{ article.title }}</h1></a>
-<b>{{ article|publication }}</b>
-<br><br>
+<h5>{{ article|publication }}</h5>
 {{ article.text|slice(0, chars)|raw }}<a href="{{ path('article', { 'slug': article.slug }) }}">[...]</a>
 <br>
 <br>

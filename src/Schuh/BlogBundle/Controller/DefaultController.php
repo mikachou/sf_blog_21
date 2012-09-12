@@ -89,4 +89,19 @@ class DefaultController extends Controller
             'second_title' => $config['blog']['second_title']
         );
     }
+    
+    /**
+     * @Template
+     */
+    public function recentArticlesWidgetAction()
+    {
+        $config = $this->container->getParameter('schuh_blog');   
+        $recentArticles = $config['widgets']['recent_articles'];
+        
+        $articles = $this->get('doctrine_mongo_db')
+                ->getRepository('Schuh\BlogBundle\Document\Article')
+                ->findBy(array(), array('published', 'desc'), $recentArticles);
+        
+        return array('articles' => $articles);
+    }
 }

@@ -37,6 +37,11 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('characters_displayed')->defaultValue(500)->cannotBeEmpty()->end()
                     ->end()
                 ->end()
+                ->arrayNode('widgets')
+                    ->children()
+                        ->scalarNode('recent_articles')->defaultValue(5)->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

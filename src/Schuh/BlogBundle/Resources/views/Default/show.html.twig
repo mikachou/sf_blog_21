@@ -2,8 +2,7 @@
 
 {% block content %}
 <h1>{{ article.title }}</h1>
-<b>{{ article|publication }}</b>
-<br><br>
+<h5>{{ article|publication }}</h5>
 {{ article.text|raw }}
 <hr>
 <h1>{{ article.comments|length }} commentaires</h1>
