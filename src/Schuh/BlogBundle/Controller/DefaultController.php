@@ -12,7 +12,7 @@ use Schuh\BlogBundle\Document\Article;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route(name="homepage", pattern="/")
      * @Template()
      */
     public function indexAction()
@@ -27,7 +27,7 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/article/{slug}")
+     * @Route(name="article", pattern="/article/{slug}")
      * @Template()
      */
     public function showAction($slug)
