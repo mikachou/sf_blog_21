@@ -30,6 +30,8 @@ builders:
       display: [ title, text, is_published ]
       fields:
         title: { label: Titre de l'article }
+        text: { label: " " }
+        is_published: { label: "Publier ?" }
       actions:
         list: ~
   edit:
@@ -38,6 +40,8 @@ builders:
       display: [ title, text, is_published ]
       fields:
         title: { label: Titre de l'article }
+        text: { label: " " }
+        is_published: { label: "Publier ?" }
       actions:
         list: ~
   delete: ~

@@ -85,6 +85,8 @@ admingenerator_generator:
     use_propel: false
     use_doctrine_orm: false
     use_doctrine_odm: true
+    stylesheets:
+      - { path: bundles/schuhblogadmin/css/custom.css }
 
 knp_menu:
     twig: true

@@ -23,6 +23,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
                 $article[$j]->setTitle($data['title']);
                 $article[$j]->setText($data['text']);
                 $article[$j]->setAuthor($this->getReference('admin-user'));
+                $article[$j]->setIsPublished(true);
                 
                 for ($k = 0; $k < rand(0, 50); $k++)
                 {
