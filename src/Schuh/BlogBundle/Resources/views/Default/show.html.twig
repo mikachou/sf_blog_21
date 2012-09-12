@@ -15,6 +15,7 @@
 <div class="leave_comment">
 <h1>Laissez un commentaire</h1>
 <form method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form._token) }}
     <h2>{{ form_label(form.author) }}</h2>
     {{ form_errors(form.author) }}
     {{ form_widget(form.author) }}
