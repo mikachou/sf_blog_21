@@ -116,4 +116,15 @@ class DefaultController extends Controller
         
         return array('categories' => $categories);
     }
+    
+    /**
+     * @Template
+     */
+    public function contactWidgetAction()
+    {
+        $config = $this->container->getParameter('schuh_blog');   
+        $contact = $config['widgets']['contact'];
+        
+        return array('contact' => $contact);
+    }
 }

@@ -40,6 +40,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('widgets')
                     ->children()
                         ->scalarNode('recent_articles')->defaultValue(5)->cannotBeEmpty()->end()
+                        ->scalarNode('contact')->defaultValue('foo@bar.com')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
             ->end();
