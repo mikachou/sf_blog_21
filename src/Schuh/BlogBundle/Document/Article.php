@@ -35,6 +35,11 @@ class Article
      * @MongoDB\String
      */
     protected $text;
+    
+    /**
+     * @MongoDB\ReferenceOne(targetDocument="Category")
+     */    
+    protected $category;
 
     /**
      * @MongoDB\EmbedMany(targetDocument="Comment")
@@ -273,5 +278,27 @@ class Article
     public function getIsPublished()
     {
         return $this->is_published;
+    }
+
+    /**
+     * Set category
+     *
+     * @param Schuh\BlogBundle\Document\Category $category
+     * @return Article
+     */
+    public function setCategory(\Schuh\BlogBundle\Document\Category $category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Schuh\BlogBundle\Document\Category $category
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

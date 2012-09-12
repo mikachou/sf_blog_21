@@ -22,6 +22,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
                 $article[$j] = new Article();
                 $article[$j]->setTitle($data['title']);
                 $article[$j]->setText($data['text']);
+                $article[$j]->setCategory($this->getReference('Category-'.$data['category']));
                 $article[$j]->setAuthor($this->getReference('admin-user'));
                 $article[$j]->setIsPublished(true);
                 
@@ -47,7 +48,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 2; // l'ordre dans lequel les fichiers sont chargés
+        return 3; // l'ordre dans lequel les fichiers sont chargés
     }
     
     protected function getData()
@@ -55,6 +56,7 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
         $data = array(
             array(
                 'title' => 'Le coût des inégalités',
+                'category' => 'Economie',
                 'text' => <<<EOF
 <p style="text-align: justify; padding-left: 90px;">
     <img src="http://3.bp.blogspot.com/-zJN7cmReHSA/Tp3GvM-v74I/AAAAAAAACZo/T12UuAxOf-I/s1600/money.jpg" class="noAlign" style=
@@ -152,6 +154,7 @@ EOF
                 ,
             ), array(
                 'title' => 'Un petit mot de droit norvégien',
+                'category' => 'Droit',
                 'text' => <<<EOF
 <p>À la suite d&#8217;un article paru semble-t-il dans la presse russe, le bruit court que la personne soupçonnée des deux attaques terroristes d&#8217;hier encourrait au maximum 21 ans de prison.</p>
 
@@ -179,6 +182,7 @@ EOF
 EOF
             ), array(
                     'title' => 'La situation sur le marché du travail en France',
+                    'category' => 'Economie',
                     'text' => <<<EOF
 <p>L’économie française fait face à de nombreux déséquilibres dont les deux principaux sont :</p>
 <p>- le déficit public qui devrait s’établir fin 2012 à près de 4,5 points de PIB, soit près de 100 milliards d’euros ;</p>
@@ -200,6 +204,7 @@ EOF
 EOF
             ), array(
                 'title' => 'Symfony 2.1.0 released',
+                'category' => 'Informatique',
                 'text' => <<<EOF
 <p>I'm very happy to announce the immediate availability of Symfony 2.1.0.</p>
 

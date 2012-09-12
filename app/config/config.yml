@@ -87,6 +87,7 @@ admingenerator_generator:
     use_doctrine_odm: true
     stylesheets:
       - { path: bundles/schuhblogadmin/css/custom.css }
+    knp_menu_class: Schuh\BlogAdminBundle\Menu\AdminMenuBuilder
 
 knp_menu:
     twig: true

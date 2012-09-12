@@ -24,5 +24,8 @@
         <service id="schuh_blog.article_listener" class="Schuh\BlogBundle\Document\ArticleListener">
             <tag name="doctrine_mongodb.odm.event_listener" event="prePersist" />
         </service>
+        <service id="schuh_blog.article_listener_update" class="Schuh\BlogBundle\Document\ArticleListener">
+            <tag name="doctrine_mongodb.odm.event_listener" event="preUpdate" />
+        </service>
     </services>
 </container>

@@ -9,10 +9,11 @@ builders:
   list:
     params:
       title: Liste des articles
-      display: [ title, author, created, updated, published ]
+      display: [ title, author, category, created, updated, published ]
       fields:
         title: { label: Titre }
         author: { label: Auteur }
+        category: { label: Catégorie }
         created: { label: Création }
         updated: { label: Mise-à-jour }
         published: { label: Publication }
@@ -27,20 +28,22 @@ builders:
   new:
     params:
       title: Nouvel article
-      display: [ title, text, is_published ]
+      display: [ title, text, category, is_published ]
       fields:
         title: { label: Titre de l'article }
         text: { label: " " }
+        category: { label: Catégorie }
         is_published: { label: "Publier ?" }
       actions:
         list: ~
   edit:
     params:
       title: Edition de "{{ Article.title }}"
-      display: [ title, text, is_published ]
+      display: [ title, text, category, is_published ]
       fields:
         title: { label: Titre de l'article }
         text: { label: " " }
+        category: { label: Catégorie }
         is_published: { label: "Publier ?" }
       actions:
         list: ~

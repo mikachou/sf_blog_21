@@ -1,3 +1,8 @@
+SchuhBlogAdminBundle_admin_schuh_blog_admin_bundle_category:
+    resource: "@SchuhBlogAdminBundle/Controller/Category/"
+    type:     admingenerator
+    prefix:   /admin/category
+
 SchuhBlogAdminBundle_admin_schuh_blog_admin_bundle_article:
     resource: "@SchuhBlogAdminBundle/Controller/Article/"
     type:     admingenerator

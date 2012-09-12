@@ -1,0 +1,41 @@
+generator: admingenerator.generator.doctrine_odm
+params:
+  model: Schuh\BlogBundle\Document\Category
+  namespace_prefix: Schuh
+  bundle_name: BlogAdminBundle
+  fields: ~
+
+builders:
+  list:
+    params:
+      title: Liste des catégories
+      display: [ name ]
+      fields:
+        name: { label: Catégorie }
+      actions:
+        new: ~
+      object_actions:
+        edit: ~
+        delete: ~
+  filters:
+    params:
+      display: ~
+  new:
+    params:
+      title: Nouvelle catégorie
+      display: [ name ]
+      fields:
+        name: { label: Intitulé de la catégorie }
+      actions:
+        list: ~
+  edit:
+    params:
+      title: Edition de "{{ Category.name }}"
+      display: [ name ]
+      fields:
+        name: { label: Intitulé de la catégorie }
+      actions:
+        list: ~
+      actions:
+        list: ~
+  delete: ~
