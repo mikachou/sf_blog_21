@@ -104,4 +104,16 @@ class DefaultController extends Controller
         
         return array('articles' => $articles);
     }
+    
+    /**
+     * @Template
+     */
+    public function categoriesWidgetAction()
+    {
+        $categories = $this->get('doctrine_mongo_db')
+                ->getRepository('Schuh\BlogBundle\Document\Category')
+                ->findAll();
+        
+        return array('categories' => $categories);
+    }
 }

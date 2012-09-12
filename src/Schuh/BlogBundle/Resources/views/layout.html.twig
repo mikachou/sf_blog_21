@@ -63,9 +63,9 @@
           {% endblock %}
         </div>
         <div class="sidebar">
-          <h3>Special Offers</h3>
-          <h4>20% Discount</h4>
-          <p>For the month of March 2012, we are offering a 20% discount for all new customers.</p>
+          {% block categories %}
+            {% render "SchuhBlogBundle:Default:categoriesWidget" %}
+          {% endblock %}
         </div>
         <div class="sidebar">
           <h3>Contact Us</h3>
