@@ -22,7 +22,7 @@ class ArticleRepository extends DocumentRepository
      */
     public function findNArticlesByPage($params, $n, $p)
     {
-        return $this->findBy($params, array('published', 'desc'), $n, $n * ($p - 1));
+        return $this->findBy($params, array('published' => 'desc'), $n, $n * ($p - 1));
         
 //        return $this->createQueryBuilder()
 //            ->limit($n)
