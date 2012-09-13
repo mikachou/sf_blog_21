@@ -6,12 +6,14 @@
 {{ article.text|raw }}
 <hr>
 <h1>{{ article.comments|length }} commentaires</h1>
+{% if article.comments|length > 0 %}
 {% for i in 0..article.comments|length - 1 %}
     <div class="comment {{ cycle(['odd', 'even'], i) }}">
         <h5>{{ article.comments[i].author }} a écrit le {{ article.comments[i].created|date('d/m/Y') }} à {{ article.comments[i].created|date('H:i') }}</h5>
         <p>{{ article.comments[i] }}</p>
     </div>
 {% endfor %}
+{% endif %}
 <div class="leave_comment">
 <h1>Laissez un commentaire</h1>
 <form method="post" {{ form_enctype(form) }}>
