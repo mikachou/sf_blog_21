@@ -6,4 +6,11 @@ use Admingenerated\SchuhBlogAdminBundle\BaseArticleController\NewController as B
 
 class NewController extends BaseNewController
 {
+    public function preSave(\Symfony\Component\Form\Form $form, \Schuh\BlogBundle\Document\Article $Article)
+    {
+        if (null === $Article->getAuthor()) {
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            $Article->setAuthor($user);
+        }
+    }
 }
