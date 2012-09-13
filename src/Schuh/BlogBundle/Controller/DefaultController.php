@@ -102,7 +102,7 @@ class DefaultController extends Controller
         
         $articles = $this->get('doctrine_mongo_db')
                 ->getRepository('Schuh\BlogBundle\Document\Article')
-                ->findBy(array('is_published' => true), array('published', 'desc'), $recentArticles);
+                ->findBy(array('is_published' => true), array('published' => 'desc'), $recentArticles);
         
         return array('articles' => $articles);
     }
