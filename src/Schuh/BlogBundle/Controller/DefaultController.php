@@ -197,6 +197,8 @@ class DefaultController extends Controller
             }
         }
         
+        $this->get('session')->set('selected_menu', 3);
+        
         return array('form' => $form->createView());
     }
 }
