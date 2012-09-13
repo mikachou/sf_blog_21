@@ -191,9 +191,14 @@ class DefaultController extends Controller
                     ->setTo($config['widgets']['contact'])
                     ->setBody($values['mail'] . ' a écrit ' . $values['message']);
                 
-                $this->get('mailer')->send($message);
+                try {
+                    $this->get('mailer')->send($message);
+                    $this->get('session')->getFlashBag()->add('notice', 'Votre message a été envoyé');
+                } catch (Swift_TransportException $e) {
+                    $this->get('session')->getFlashBag()->add('notice', 'Un problème est survenu pendant l\'envoi du message. Merci de rééssayer ultérieurement');
+                }
                 
-                $this->get('session')->getFlashBag()->add('notice', 'Votre message a été envoyé');
+                
             }
         }
         
